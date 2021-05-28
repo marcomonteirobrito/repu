@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0.25rem;
+
+  max-width: 62rem;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+
+  background-color: var(--backgroundGray);
+  box-sizing: border-box;
+
+  a {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    opacity: 0.8;
+    transition: opacity 0.2s ease 0s;
+    align-self: flex-start;
+    margin: 0.5rem 0;
+  }
+
+  span {
+    margin-top: 0.5rem;
+  }
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  color: var(--textColorLight);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.7rem;
+
+  background-color: var(--inputColor);
+
+  input {
+    border: 0 none;
+    outline: 0;
+    box-shadow: 0 0 0 0;
+    background-color: var(--inputColor);
+    font-size: 1rem;
+
+    color: var(--textColorLight);
+
+    margin: 0 1rem;
+  }
+
+  svg {
+    color: var(--secondary);
+    opacity: 0.5;
+  }
+
+  &:hover {
+    svg {
+      opacity: 1;
+    }
+  }
+}

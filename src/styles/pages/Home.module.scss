@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 992px;
+  height: 100vh;
+
+  strong {
+    font-size: 2rem;
+    color: var(--textColorLight);
+  }
+}

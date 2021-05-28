@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
+  width: 100vw;
+  padding: 0.8rem;
+  color: var(--textColorLight);
+
+  span {
+    font-size: 0.7rem;
+  }
+
+  a {
+    font-size: 0.7rem;
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 0.25rem;
+
+  svg {
+    margin-right: 0.25rem;
+  }
+}
