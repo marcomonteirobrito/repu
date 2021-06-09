@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styles from "../styles/pages/Home.module.scss";
 
@@ -7,6 +7,16 @@ import Login from "../components/Login";
 import Footer from "../components/Footer";
 
 export default function Home() {
+  useEffect(() => {
+    handleGetLocalStorage();
+  }, []);
+
+  const handleGetLocalStorage = () => {
+    const userToken = localStorage.getItem("token");
+
+    userToken && router.push("dashboard");
+  };
+
   return (
     <div className={styles.container}>
       <SEO

@@ -24,22 +24,12 @@ export default function Login() {
     }
   }, [email, password]);
 
-  useEffect(() => {
-    handleGetLocalStorage();
-  }, []);
-
-  const handleGetLocalStorage = () => {
-    const userToken = localStorage.getItem("token");
-
-    userToken && router.push("dashboard");
-  };
   const handleSubmitLogin = async () => {
     try {
       setIsLoading(true);
 
       const response = await connectionApi.get("/login");
       handleSaveLocalStorage(response.data);
-      console.log(response);
       response.status === 200 && router.push("/dashboard");
     } catch (err) {
       console.log(err);
