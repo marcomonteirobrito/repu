@@ -19,7 +19,7 @@ export default function Home() {
         <Login />
       </main>
 
-      <div>
+      <div className={styles.footer}>
         <Footer />
       </div>
     </div>
