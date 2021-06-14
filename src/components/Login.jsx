@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
-import { useRouter } from "next/router";
 
+import { AuthContext } from "../contexts/AuthContext";
 import styles from "../styles/components/Login.module.scss";
 
 import Button from "../components/Button";
-import connectionApi from "../services/connectionApi";
 
 export default function Login() {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -13,8 +12,7 @@ export default function Login() {
   const [buttonDisable, setButtonDisable] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const router = useRouter();
+  const { signIn } = useContext(AuthContext);
 
   useEffect(() => {
     if (email.length > 0 && password.length > 0) {
@@ -24,30 +22,17 @@ export default function Login() {
     }
   }, [email, password]);
 
-  const handleSubmitLogin = async () => {
+  async function handleSignIn() {
     try {
       setIsLoading(true);
-
-      const response = await connectionApi.get("/login");
-      handleSaveLocalStorage(response.data);
-      response.status === 200 && router.push("/dashboard");
+      await signIn({ email, password });
     } catch (err) {
-      console.log(err);
+      console.log("Erro no login", err);
       setIsLoading(false);
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const handleSaveLocalStorage = async ({ token, userName, userId }) => {
-    try {
-      localStorage.setItem("token", token);
-      localStorage.setItem("userName", userName);
-      localStorage.setItem("userId", userId);
-    } catch (err) {
-      console.log("Erro ao salvar no localStorage");
-    }
-  };
+  }
 
   return (
     <div className={styles.container}>
@@ -78,11 +63,13 @@ export default function Login() {
         )}
       </div>
 
-      <a>Esqueci minha senha</a>
+      <div className={styles.passwordLink}>
+        <a>Esqueci minha senha</a>
+      </div>
 
       <Button
         label="Entrar"
-        onClick={handleSubmitLogin}
+        onClick={handleSignIn}
         isLoading={isLoading}
         isDisable={buttonDisable}
       />

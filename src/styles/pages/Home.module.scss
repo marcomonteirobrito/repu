@@ -4,28 +4,22 @@
   justify-content: center;
   align-items: center;
 
-  max-width: 992px;
   height: 100vh;
 
   strong {
     font-size: 2rem;
     color: var(--textColorLight);
   }
-
-  @media (min-width: 980px) {
-    max-width: 1200px;
-  }
-
-  @media (min-width: 1439px) {
-    max-width: 1431px;
-  }
-
-  @media (min-width: 2499px) {
-    max-width: 2200px;
-  }
 }
 
 .footer {
   position: absolute;
-  bottom: 0px;
+  bottom: 0px !important;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

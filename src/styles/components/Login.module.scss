@@ -19,10 +19,14 @@
     transition: opacity 0.2s ease 0s;
     align-self: flex-start;
     margin: 0.5rem 0;
+    cursor: pointer;
   }
 
   span {
     margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -35,6 +39,7 @@
   margin-bottom: 0.7rem;
 
   background-color: var(--inputColor);
+  cursor: pointer;
 
   input {
     border: 0 none;
@@ -51,6 +56,7 @@
   svg {
     color: var(--secondary);
     opacity: 0.5;
+    cursor: pointer;
   }
 
   &:hover {
@@ -58,4 +64,10 @@
       opacity: 1;
     }
   }
+}
+
+.passwordLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,13 +1,13 @@
-import '../styles/globals.scss'
+import "../styles/globals.scss";
 
-import { ProfileProvider } from '../contexts/ProfileContext'
+import { AuthProvider } from "../contexts/AuthContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ProfileProvider>
+    <AuthProvider>
       <Component {...pageProps} />
-    </ProfileProvider>
-  )
+    </AuthProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

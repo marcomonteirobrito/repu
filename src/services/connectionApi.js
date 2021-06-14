@@ -1,7 +1,14 @@
 import axios from "axios";
+import { parseCookies } from "nookies";
 
-const api = axios.create({
+const { "repu-token": token } = parseCookies();
+
+const connectionApi = axios.create({
   baseURL: "http://localhost:3333",
 });
 
-export default api;
+if (token) {
+  connectionApi.defaults.headers["Authorizsation"] = `Bearer ${token}`;
+}
+
+export default connectionApi;
