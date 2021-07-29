@@ -4,7 +4,7 @@ import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { AuthContext } from "../contexts/AuthContext";
 import styles from "../styles/components/Login.module.scss";
 
-import Button from "../components/Button";
+import Button from "./Button";
 
 export default function Login() {
   const [passwordVisible, setPasswordVisible] = useState(false);

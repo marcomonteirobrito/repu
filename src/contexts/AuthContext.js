@@ -18,7 +18,6 @@ export function AuthProvider({ children }) {
   }, []);
 
   async function recoverUserInformation({ token }) {
-    console.log(token);
     const response = await connectionApi.get("userDetail");
 
     setUser(response.data);
